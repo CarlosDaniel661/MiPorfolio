@@ -1,4 +1,9 @@
 from flask import Flask
+from dotenv import load_dotenv
+import os
+
+# Cargar las variables de entorno
+load_dotenv()
 
 def create_app():
     app = Flask(__name__, static_folder='../static')
