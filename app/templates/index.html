@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="home">
+    <div class="intro-container">
+        <img src="{{ url_for('static', filename='img/Self.jpg') }}" alt="Carlos Daniel Jiménez Cálcena" class="profile-image">
+        <h1 class="text-center">Carlos Daniel Jiménez Cálcena</h1>
+        <p class="text-center">Bienvenido a mi Porfolio</p>
+        <p class="text-center">Este es mi sitio web personal donde puedes conocer más sobre mí y mis proyectos.</p>
+    </div>
+</section>
+
+<section id="about">  
+    <h1 class="text-center">Sobre mí</h1>
+    <p>Soy un Tester QA con 2 años de experiencia en la creación y documentación de casos de prueba, 
+        adaptándome a metodologías tradicionales y ágiles (Scrum). 
+        Mi enfoque en la calidad y atención al detalle me permite identificar y resolver 
+        problemas de manera efectiva. 
+        Actualmente, complemento mi carrera con estudios en desarrollo web, expandiendo mis habilidades técnicas y adaptándome a las demandas cambiantes del sector tecnológico.
+    </p>
+</section>
+
+<section id="reconocimientos">
+    <h1 class="text-center">Mis reconocimientos</h1>
+    <p>A lo largo de mis estudios en el campo del Testing de software, he recibido varios reconocimientos por mi desempeño y mis habilidades aplicadas y demostradas en cada proyecto en el que he participado</p>
+    <p>Además, durante mi etapa de crecimiento en el rubro IT, he estudiado y perfeccionado mis habilidades en cuanto al desarrollo web, utilizando Python, Django, Flask, Boostrap, Tailwindcss, HTML, CSS, ya que todo esto me permite utilizar y aplicar nuevas herramientas en cuanto a conocimientos concretos del SDLC y poder aplicar herramientas de automatización.</p>
+    <p>Estos reconocimientos me han motivado a seguir mejorando y a buscar nuevas oportunidades para crecer profesionalmente.</p>
+    <div class="reconocimientos-container">
+        {% for reconocimiento in reconocimientos %}
+        <div class="reconocimientos-card">
+            <a href="{{ url_for('static', filename='img/' + reconocimiento.image_url.split('/')[-1]) }}" data-lightbox="reconocimientos" data-title="{{ reconocimiento.name }}">
+                <img src="{{ url_for('static', filename='img/' + reconocimiento.image_url.split('/')[-1]) }}" alt="{{ reconocimiento.name }}" class="reconocimiento-image">
+            </a>
+            <h2 class="reconocimiento-title">{{ reconocimiento.name }}</h2>
+            <p class="reconocimiento-description">{{ reconocimiento.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<div class="flex-container">
+    <section id="stack">
+        <h1 class="text-center">Stack Tecnológico</h1>
+        <div class="stack-container">
+            {% for stack in stacks %}
+            <div class="stack-card">
+                <img src="{{ url_for('static', filename='img/' + stack.image_url.split('/')[-1]) }}" alt="{{ stack.name }}" class="stack-image">
+                <p class="stack-name">{{ stack.name }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="skill">
+        <h1 class="text-center">Skills</h1>
+        <div class="skill-container">
+            <div class="skill-card">
+                <p><strong>Habilidades clave:</strong>
+                    <ul>
+                        <li>Herramientas: Jira (Xray, TestRail), Azure DevOps, Postman, Confluence, Cypress.</li>
+                        <li>Desarrollo web: Conocimientos en HTML, CSS, Python, Java.</li>
+                        <li>Competencias: Análisis detallado, proactividad, trabajo en equipo.</li>
+                        <li>Creación y documentación de casos de prueba.</li>
+                        <li>Gestión de proyectos y metodologías ágiles: adaptabilidad a metodologías como cascada y Scrum (Ágile).</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section id="projects">
+    <h1 class="text-center">Mis Proyectos</h1>
+    <div class="projects-container">
+        {% for project in projects %}
+        <div class="project-card">
+            <img src="{{ url_for('static', filename='img/' + project.image_url.split('/')[-1]) }}" alt="{{ project.name }}" class="project-image">
+            <h2 class="project-title">{{ project.name }}</h2>
+            <p class="project-description">{{ project.description }}</p>
+            <p><strong>Tecnologías:</strong> {{ project.technologies }}</p>
+            <p><strong>Rol:</strong> {{ project.role }}</p>
+            <div class="project-links">
+                {% if project.github_url %}
+                <a href="{{ project.github_url }}" target="_blank">Ver casos de Prueba</a>
+                {% endif %}
+                {% if project.live_demo_url %}
+                <a href="{{ project.live_demo_url }}" target="_blank">Ver video Demo</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="feedbacks">
+    <h1 class="text-center">Feedbacks</h1>
+    <div class="feedbacks-container">
+        {% for feedback in feedbacks %}
+        <div class="feedback-card">
+            <a href="{{ url_for('static', filename='img/' + feedback.image_url.split('/')[-1]) }}" data-lightbox="feedbacks" data-title="{{ feedback.name }}">
+                <img src="{{ url_for('static', filename='img/' + feedback.image_url.split('/')[-1]) }}" alt="{{ feedback.name }}" class="feedback-image">
+            </a>
+            <h2 class="feedback-title">{{ feedback.name }}</h2>
+            <p class="feedback-description">{{ feedback.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

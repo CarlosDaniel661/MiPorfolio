@@ -1,0 +1,434 @@
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    background-image: url('../img/background.jpg'); /* Asegúrate de tener una imagen de fondo */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Header styles */
+header {
+    background-color: rgba(52, 58, 64, 0.8);
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #007bff;
+}
+
+header .btn-download-cv {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    margin-left: auto; /* Move the button to the right */
+    align-self: center; /* Center the button vertically */
+    margin-right: 70px; /* Add margin to the right */
+}
+
+header .btn-download-cv:hover {
+    background-color: #0056b3;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    align-self: center; /* Center the dropdown vertically */
+}
+
+.dropbtn {
+    background-color: #007bff;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+    background-color: #0056b3;
+}
+
+.dropdown-content {
+    display: none;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    background-color: #4582f3;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0; /* Align the dropdown to the right */
+}
+
+.dropdown-content a {
+    color: rgb(252, 252, 252);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: rgb(24, 23, 23);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Main content styles */
+main {
+    padding: 80px 20px 20px; /* Add padding to avoid overlap with fixed header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Intro container styles */
+.intro-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+/* Section styles */
+section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #007bff; /* Primary color for headings */
+}
+
+section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Flex container for stacks and skills */
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Ensure both containers stretch to the same height */
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* Stack and skill container styles */
+.stack-container, .skill-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    min-height: 300px; /* Ensure both containers have the same minimum height */
+    width: 100%; /* Ensure both containers have the same width */
+}
+
+/* Stack grid styles */
+.stack-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px); /* 4 columns with fixed width */
+    grid-auto-rows: 75px; /* Fixed height for rows */
+    gap: 40px; /* Adjust gap as needed */
+    width: 100%;
+    /*justify-content: center;  Center the grid within the container */
+    align-items: center; /* Center items vertically within the grid */
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+/* Stack and skill card styles */
+.stack-card, .skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensure both cards have the same height */
+    width: 100%; /* Ensure both cards have the same width */
+}
+
+.stack-card:hover, .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stack-image, .skill-image {
+    width: 60px; /* Smaller images */
+    height: 50px; /* Smaller images */
+    object-fit: contain;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.stack-name, .skill-name {
+    font-size: 1em;
+    color: #007bff; /* Primary color for titles */
+    text-align: center;
+}
+
+/* Skill styles */
+.skill {
+    width: 100%;
+}
+
+.skill p {
+    font-size: 1.1em;
+    line-height: 2.5; /* Increase line height for better spacing */
+    color: #555;
+    text-align: justify; /* Justify text */
+}
+
+.skill li {
+    line-height: 3.0 !important; /* Adjust this value to increase the space between lines */
+    font-size: 1em !important; /* Adjust this value to increase the font size */
+}
+
+/* Project styles */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.project-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure the content is spaced evenly */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.project-title {
+    font-size: 1.5em;
+    margin: 15px 0 10px; /* Ensure consistent margin between image and title */
+    color: #007bff; /* Primary color for titles */
+}
+
+.project-description {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.project-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: auto; /* Push the links to the bottom */
+}
+
+.project-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: white;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.project-links a:hover {
+    background-color: #0056b3;
+}
+
+/* Recognition styles */
+.reconocimientos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.reconocimientos-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure the content is spaced evenly */
+}
+
+.reconocimientos-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.reconocimiento-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.reconocimiento-title {
+    font-size: 1.5em;
+    margin: 20px 0 10px; /* Ensure consistent margin between image and title */
+    color: #007bff; /* Primary color for titles */
+}
+
+.reconocimiento-description {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Feedback styles */
+.feedbacks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.feedback-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure the content is spaced evenly */
+}
+
+.feedback-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-bottom: 1px solid #ddd;
+    background-color: rgba(1, 12, 22, 0.8);
+}
+
+.feedback-title {
+    font-size: 1.5em;
+    margin: 20px 0 10px; /* Ensure consistent margin between image and title */
+    color: #007bff; /* Primary color for titles */
+}
+
+.feedback-description {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgba(52, 58, 64, 0.8);
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
