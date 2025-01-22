@@ -22,6 +22,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Allow wrapping */
 }
 
 header nav {
@@ -29,6 +30,7 @@ header nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    flex-wrap: wrap; /* Allow wrapping */
 }
 
 header nav ul {
@@ -37,6 +39,7 @@ header nav ul {
     justify-content: center;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap; /* Allow wrapping */
 }
 
 header nav ul li {
@@ -48,6 +51,7 @@ header nav ul li a {
     color: white;
     font-weight: bold;
     transition: color 0.3s ease;
+    font-size: 1em; /* Adjust font size */
 }
 
 header nav ul li a:hover {
@@ -170,7 +174,7 @@ section p {
 .flex-container {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Ensure both containers stretch to the same height */
+    align-items: stretch; /* Ambos contenedores tendrán la misma altura */
     gap: 20px;
     width: 90%;
     max-width: 1200px;
@@ -179,30 +183,27 @@ section p {
 
 /* Stack and skill container styles */
 .stack-container, .skill-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    flex: 1; /* Ambos contenedores ocupan el mismo espacio proporcional */
+    background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    min-height: 300px; /* Ensure both containers have the same minimum height */
-    width: 100%; /* Ensure both containers have the same width */
+    box-sizing: border-box;
+    min-height: 300px; /* Altura mínima igual para ambos */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+    width: 100%; /* Ambos contenedores ocupan el mismo ancho */
 }
 
 /* Stack grid styles */
 .stack-container {
-    display: grid;
-    grid-template-columns: repeat(4, 100px); /* 4 columns with fixed width */
-    grid-auto-rows: 75px; /* Fixed height for rows */
-    gap: 40px; /* Adjust gap as needed */
-    width: 100%;
-    /*justify-content: center;  Center the grid within the container */
-    align-items: center; /* Center items vertically within the grid */
-    margin-left: 5px;
-    margin-right: 20px;
+    display: grid; /* Mantén el uso de grid para organizar imágenes */
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas con proporciones iguales */
+    grid-auto-rows: 75px; /* Altura fija para las filas */
+    gap: 20px; /* Ajusta el espacio entre los elementos */
+    width: 100%; /* Asegúrate de que ocupe el 100% del contenedor */
 }
 
 /* Stack and skill card styles */
@@ -213,11 +214,13 @@ section p {
     justify-content: center;
     padding: 10px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; /* Ensure both cards have the same height */
-    width: 100%; /* Ensure both cards have the same width */
+    height: 100%; /* Las tarjetas tendrán la misma altura */
+    width: 100%; /* Las tarjetas tendrán el mismo ancho */
+    /*margin-left: 5px;
+    margin-right: 20px;*/
 }
 
 .stack-card:hover, .skill-card:hover {
@@ -225,39 +228,34 @@ section p {
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Stack and skill images */
 .stack-image, .skill-image {
-    width: 60px; /* Smaller images */
-    height: 50px; /* Smaller images */
+    width: 60px; /* Tamaño uniforme para las imágenes */
+    height: auto; /* Mantén las proporciones */
     object-fit: contain;
-    margin-bottom: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
     margin-bottom: 10px;
 }
 
+/* Stack and skill text styles */
 .stack-name, .skill-name {
     font-size: 1em;
-    color: #007bff; /* Primary color for titles */
+    color: #007bff;
     text-align: center;
 }
 
 /* Skill styles */
-.skill {
+.skill ul {
     width: 100%;
-}
-
-.skill p {
-    font-size: 1.1em;
-    line-height: 2.5; /* Increase line height for better spacing */
-    color: #555;
-    text-align: justify; /* Justify text */
+    padding: 0;
+    margin: 0;
+    list-style-type: none; /* Elimina los puntos de la lista */
 }
 
 .skill li {
-    line-height: 3.0 !important; /* Adjust this value to increase the space between lines */
-    font-size: 1em !important; /* Adjust this value to increase the font size */
+    font-size: 1em;
+    line-height: 1.8; /* Ajusta el espaciado entre las líneas */
+    color: #555;
+    text-align: justify;
 }
 
 /* Project styles */
@@ -348,7 +346,7 @@ section p {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensure the content is spaced evenly */
+    /*justify-content: space-between; /* Ensure the content is spaced evenly */
 }
 
 .reconocimientos-card:hover {
@@ -365,7 +363,7 @@ section p {
 
 .reconocimiento-title {
     font-size: 1.5em;
-    margin: 20px 0 10px; /* Ensure consistent margin between image and title */
+    margin: 15px 0 10px; /* Ensure consistent margin between image and title */
     color: #007bff; /* Primary color for titles */
 }
 
@@ -431,4 +429,74 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .stack-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .projects-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .reconocimientos-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .btn-download-cv {
+        margin: 10px 0;
+    }
+
+    .intro-container {
+        padding: 20px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .stack-container {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+
+    .projects-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .reconocimientos-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
 }
