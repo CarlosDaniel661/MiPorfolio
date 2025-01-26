@@ -74,6 +74,11 @@ def index():
             'name': 'Certificado QA Tester',
             'description': 'Certificado de aprobación del curso de Testing de Software, completado en el Informatorio Chaco, una de mis puertas de entrada junto con otros cursos a los que me suscribí de manera autodidacta para ingresar al mundo IT.',
             'image_url': '/static/img/Certi testing.jpg'
+        },
+        {
+            'name': 'Reconocimiento',
+            'description': 'Reconocomiento al equipo de trabajo por su compañerismo y apoyo constante a otros equipos.',
+            'image_url': '/static/img/ReconocimientoGoPass.jpg'
         }
     ]
 
